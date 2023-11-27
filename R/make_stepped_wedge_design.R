@@ -39,7 +39,6 @@ make_stepped_wedge_design <- function(i, j, intervention_seq) {
   # Merge all information together and return a dataset with the design
   design <- merge(i_by_j, sequence_assigment, by = "i")
   design <- merge(design, ts, by = c("j", "s"))
-  design <- design[order(design$i, design$j, design$s, design$x),]
-  row.names(design) = NULL
+  design <- dplyr::arrange(design, i, j, s, x)
   return(design)
 }
