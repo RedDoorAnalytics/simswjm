@@ -11,7 +11,7 @@
 #' @export
 #'
 #' @examples
-#' icc(sigma_alpha = 1.5, sigma_gamma = 0.0, sigma_phi = 2.0, sigma_epsilon = 4.0)
+#' icc(sigma_alpha = 1.5, sigma_gamma = 0.0, sigma_phi = 3.0, sigma_epsilon = 4.0)
 icc <- function(sigma_alpha, sigma_gamma, sigma_phi, sigma_epsilon) {
   # Squared inputs to have less verbose code:
   s2_a <- sigma_alpha^2

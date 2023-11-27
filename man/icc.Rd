@@ -23,5 +23,5 @@ A list of values with within-individual ICC for repeated measures (`ICC_a`),
 Calculate ICC Values
 }
 \examples{
-icc(sigma_alpha = 1.5, sigma_gamma = 0.0, sigma_phi = 2.0, sigma_epsilon = 4.0)
+icc(sigma_alpha = 1.5, sigma_gamma = 0.0, sigma_phi = 3.0, sigma_epsilon = 4.0)
 }
