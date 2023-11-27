@@ -1,6 +1,6 @@
 Package: simswjm
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Simulate Data from Stepped Wedge Longitudinal Trials
 Version: 0.0.0-9000
 Authors@R: c(
   person(given = "Alessandro", 
@@ -10,8 +10,12 @@ Authors@R: c(
   person("Red Door Analytics AB", role = c("cph"))
   )
 Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+  Use four spaces when indenting paragraphs within the Description.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
+Imports:
+  dplyr,
+  stats,
+  tidyr
