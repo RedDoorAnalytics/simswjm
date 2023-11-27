@@ -2,6 +2,4 @@
 
 export(make_stepped_wedge_design)
 export(swtrial)
-import(stats)
-import(tidyr)
-importFrom(dplyr,arrange)
+export(swtrial_inf)
