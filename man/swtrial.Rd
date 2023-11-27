@@ -51,11 +51,11 @@ applies when `family = "gaussian"`, and defaults to 0.0;}
 \item{sigma_alpha}{Standard deviation of cluster-level random effect \eqn{\alpha}.
 Defaults to 0.0;}
 
-\item{sigma_gamma}{Standard deviation of period-level random effect \eqn{\gamma};
+\item{sigma_gamma}{Standard deviation of period-level random effect \eqn{\gamma}.
 Defaults to 0.0;}
 
 \item{sigma_phi}{Standard deviation of subject-level random effect \eqn{\phi}.
-Defaults to 0.0;}
+Defaults to 0.0.}
 }
 \value{
 A simulated dataset from a stepped wedge trial.

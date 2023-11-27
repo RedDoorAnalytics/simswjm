@@ -21,10 +21,10 @@
 #'     applies when `family = "gaussian"`, and defaults to 0.0;
 #' @param sigma_alpha Standard deviation of cluster-level random effect \eqn{\alpha}.
 #'     Defaults to 0.0;
-#' @param sigma_gamma Standard deviation of period-level random effect \eqn{\gamma};
+#' @param sigma_gamma Standard deviation of period-level random effect \eqn{\gamma}.
 #'     Defaults to 0.0;
 #' @param sigma_phi Standard deviation of subject-level random effect \eqn{\phi}.
-#'     Defaults to 0.0;
+#'     Defaults to 0.0.
 #'
 #' @return A simulated dataset from a stepped wedge trial.
 #'
