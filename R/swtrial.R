@@ -43,7 +43,6 @@
 #'   sigma_phi = 3
 #' )
 swtrial <- function(repn, N, i = 8, j = 5, intervention_seq = 4, deltas, betas, family, sigma_epsilon = 0.0, sigma_alpha = 0.0, sigma_gamma = 0.0, sigma_phi = 0.0) {
-
   # We need a period effect per period, error if that's not the case
   if (j != length(betas)) {
     stop("Not enough (or too many) period-effect parameters 'betas', there must be 'j'.", call. = FALSE)
@@ -102,11 +101,11 @@ swtrial <- function(repn, N, i = 8, j = 5, intervention_seq = 4, deltas, betas, 
   df[["xb"]] <- with(df, beta + delta * x + alpha + gamma + phi)
   # Compute response
   if (family == "gaussian") {
-    df[["Y"]] <- stats::rnorm(n = nrow(df), mean = df[["xb"]], sd = sigma_epsilon)
+    df[["y"]] <- stats::rnorm(n = nrow(df), mean = df[["xb"]], sd = sigma_epsilon)
   } else if (family == "binomial") {
-    df[["Y"]] <- stats::rbinom(n = nrow(df), size = 1, prob = stats::plogis(q = df[["xb"]]))
+    df[["y"]] <- stats::rbinom(n = nrow(df), size = 1, prob = stats::plogis(q = df[["xb"]]))
   } else if (family == "poisson") {
-    df[["Y"]] <- stats::rpois(n = nrow(df), lambda = exp(df[["xb"]]))
+    df[["y"]] <- stats::rpois(n = nrow(df), lambda = exp(df[["xb"]]))
   }
   # Done!
   df[["repn"]] <- repn
