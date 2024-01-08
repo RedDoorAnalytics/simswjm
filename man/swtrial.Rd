@@ -6,7 +6,7 @@
 \usage{
 swtrial(
   repn,
-  N,
+  k,
   i = 8,
   j = 5,
   intervention_seq = 4,
@@ -22,7 +22,7 @@ swtrial(
 \arguments{
 \item{repn}{Index number for the current dataset, useful for simulations;}
 
-\item{N}{Number of subjects per cluster;}
+\item{k}{Number of subjects per cluster;}
 
 \item{i}{Number of clusters, passed to [make_stepped_wedge_design()].
 Defaults to 8;}
@@ -66,7 +66,7 @@ Simulate Data from a Stepped-Wedge Trial
 \examples{
 # Simulate a stepped-wedge trial with a continuous outcome:
 swtrial(
-  repn = 1, N = 3, i = 4, j = 5, intervention_seq = 4,
+  repn = 1, k = 3, i = 4, j = 5, intervention_seq = 4,
   deltas = c(0.5, 0.5, 0.5, 0.5),
   betas = c(0, 0.1, 0.2, 0.3, 0.4),
   family = "gaussian",

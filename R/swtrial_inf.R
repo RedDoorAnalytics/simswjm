@@ -1,7 +1,7 @@
 #' Simulate Data from a Stepped-Wedge Trial with Informative Dropout
 #'
 #' @param repn Index number for the current dataset, useful for simulations;
-#' @param N Number of subjects per cluster;
+#' @param k Number of subjects per cluster;
 #' @param i Number of clusters, passed to [make_stepped_wedge_design()].
 #'     Defaults to 8;
 #' @param j Number of time periods, passed to [make_stepped_wedge_design()].
@@ -45,7 +45,7 @@
 #' @examples
 #' # Simulate a stepped-wedge trial with a continuous outcome:
 #' swtrial_inf(
-#'   repn = 1, N = 3, i = 4, j = 5, intervention_seq = 4,
+#'   repn = 1, k = 3, i = 4, j = 5, intervention_seq = 4,
 #'   deltas = c(0.5, 0.5, 0.5, 0.5),
 #'   betas = c(0, 0.1, 0.2, 0.3, 0.4),
 #'   family = "gaussian",
@@ -55,9 +55,9 @@
 #'   sigma_phi = 3,
 #'   omega1 = 1, omega3 = 1
 #' )
-swtrial_inf <- function(repn, N, i = 8, j = 5, intervention_seq = 4, deltas, betas, family, sigma_epsilon = 0.0, sigma_alpha = 0.0, sigma_gamma = 0.0, sigma_phi = 0.0, lambda = 0.05, p = 2, nu = 0.0, omega1 = 0.0, omega2 = 0.0, omega3 = 0.0) {
+swtrial_inf <- function(repn, k, i = 8, j = 5, intervention_seq = 4, deltas, betas, family, sigma_epsilon = 0.0, sigma_alpha = 0.0, sigma_gamma = 0.0, sigma_phi = 0.0, lambda = 0.05, p = 2, nu = 0.0, omega1 = 0.0, omega2 = 0.0, omega3 = 0.0) {
   # Simulate trial without dropout
-  df <- swtrial(repn = repn, N = N, i = i, j = j, intervention_seq = intervention_seq, deltas = deltas, betas = betas, family = family, sigma_epsilon = sigma_epsilon, sigma_alpha = sigma_alpha, sigma_gamma = sigma_gamma, sigma_phi = sigma_phi)
+  df <- swtrial(repn = repn, k = k, i = i, j = j, intervention_seq = intervention_seq, deltas = deltas, betas = betas, family = family, sigma_epsilon = sigma_epsilon, sigma_alpha = sigma_alpha, sigma_gamma = sigma_gamma, sigma_phi = sigma_phi)
   # Sort again (to be sure)
   df <- dplyr::arrange(df, i, id, j)
   # Add time (start of discrete intervention period) and tJ (time of intervention drop-in)
@@ -65,7 +65,7 @@ swtrial_inf <- function(repn, N, i = 8, j = 5, intervention_seq = 4, deltas, bet
     t = j - 1,
     tJ = ifelse(x == 1, t, NA),
     tJ = min(tJ, na.rm = TRUE),
-    .by = c("id")
+    .by = "id"
   )
   # Then, move onto the survival (drop-out) part
   survdf <- dplyr::distinct(df, id, alpha, gamma, phi, tJ)
@@ -74,7 +74,7 @@ swtrial_inf <- function(repn, N, i = 8, j = 5, intervention_seq = 4, deltas, bet
   b <- as.numeric(-log(uu) < (lambda * exp(xb) * (survdf$tJ^p)))
   T1 <- (-log(uu) / (lambda * exp(xb)))^(1 / p)
   T2 <- ((-log(uu) - lambda * exp(xb) * (survdf$tJ^p) + lambda * exp(nu) * exp(xb) * (survdf$tJ^p)) / (lambda * exp(nu) * exp(xb)))^(1 / p)
-  survdf[["eventtime"]] <- (T1^(b == 1)) * (T2^(b == 0))
+  survdf$eventtime <- (T1^(b == 1)) * (T2^(b == 0))
   survdf <- dplyr::mutate(survdf, status = as.numeric(eventtime <= j))
   survdf <- dplyr::mutate(survdf, actual_eventtime = eventtime)
   survdf <- dplyr::mutate(survdf, eventtime = pmin(eventtime, j))
