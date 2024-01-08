@@ -3,53 +3,49 @@ library(haven)
 library(devtools)
 devtools::load_all()
 set.seed(458622)
-.N <- 25
-.i <- 4 * 25
-.delta <- rep(0.5, 4)
-.beta <- seq(0, 1, length.out = 5)
-.sa <- 1.5
-.sg <- 0.0
-.sp <- 2.5
-.se <- sqrt(10)
-.nu <- 0.0
-.omega <- 1.0
+.k <- 30
+.i <- 100
 
 ### Continuous:
 
 # Gaussian, not informative:
 d0g <- swtrial_inf(
   repn = 1,
-  N = .N,
+  k = .k,
   i = .i,
   j = 5,
   intervention_seq = 4,
-  deltas = .delta,
-  betas = .beta,
+  deltas = rep(0.2, 4),
+  betas = rep(50, 5),
   family = "gaussian",
-  sigma_epsilon = .se,
-  sigma_alpha = .sa,
-  sigma_gamma = .sg,
-  sigma_phi = .sp,
-  nu = .nu
+  sigma_epsilon = sqrt(52.8),
+  sigma_alpha = sqrt(1),
+  sigma_gamma = 0.0,
+  sigma_phi = sqrt(54),
+  nu = -0.2,
+  lambda = exp(-1.5),
+  p = exp(0.0)
 )
 # Gaussian, informative:
 d1g <- swtrial_inf(
   repn = 1,
-  N = .N,
+  k = .k,
   i = .i,
   j = 5,
   intervention_seq = 4,
-  deltas = .delta,
-  betas = .beta,
+  deltas = rep(0.2, 4),
+  betas = rep(50, 5),
   family = "gaussian",
-  sigma_epsilon = .se,
-  sigma_alpha = .sa,
-  sigma_gamma = .sg,
-  sigma_phi = .sp,
-  nu = .nu,
-  omega1 = .omega,
-  omega2 = .omega, # shouldn't matter
-  omega3 = .omega
+  sigma_epsilon = sqrt(52.8),
+  sigma_alpha = sqrt(1),
+  sigma_gamma = 0.0,
+  sigma_phi = sqrt(54),
+  nu = -0.2,
+  lambda = exp(-1.5),
+  p = exp(0.0),
+  omega1 = -0.1,
+  omega2 = 0.0,
+  omega3 = -0.1
 )
 
 ### Binary:
@@ -57,35 +53,39 @@ d1g <- swtrial_inf(
 # Binary, not informative:
 d0b <- swtrial_inf(
   repn = 1,
-  N = .N,
+  k = .k,
   i = .i,
   j = 5,
   intervention_seq = 4,
-  deltas = .delta,
-  betas = .beta,
+  deltas = rep(0.2, 4),
+  betas = rep(-2, 5),
   family = "binomial",
-  sigma_alpha = .sa,
-  sigma_gamma = .sg,
-  sigma_phi = .sp,
-  nu = .nu
+  sigma_alpha = sqrt(0.1),
+  sigma_gamma = 0.0,
+  sigma_phi = sqrt(1.0),
+  nu = -0.1,
+  lambda = exp(-1.5),
+  p = exp(0.0)
 )
 # Binary, informative:
 d1b <- swtrial_inf(
   repn = 1,
-  N = .N,
+  k = .k,
   i = .i,
   j = 5,
   intervention_seq = 4,
-  deltas = .delta,
-  betas = .beta,
+  deltas = rep(0.2, 4),
+  betas = rep(-2, 5),
   family = "binomial",
-  sigma_alpha = .sa,
-  sigma_gamma = .sg,
-  sigma_phi = .sp,
-  nu = .nu,
-  omega1 = .omega,
-  omega2 = .omega, # shouldn't matter
-  omega3 = .omega
+  sigma_alpha = sqrt(0.1),
+  sigma_gamma = 0.0,
+  sigma_phi = sqrt(1.0),
+  nu = -0.1,
+  lambda = exp(-1.5),
+  p = exp(0.0),
+  omega1 = 1.0,
+  omega2 = 0.0,
+  omega3 = 0.4
 )
 
 ### Count:
@@ -93,35 +93,39 @@ d1b <- swtrial_inf(
 # Count, not informative:
 d0c <- swtrial_inf(
   repn = 1,
-  N = .N,
+  k = .k,
   i = .i,
   j = 5,
   intervention_seq = 4,
-  deltas = .delta,
-  betas = .beta,
+  deltas = rep(0.1, 4),
+  betas = rep(-1, 5),
   family = "poisson",
-  sigma_alpha = .sa / 3,
-  sigma_gamma = .sg / 3,
-  sigma_phi = .sp / 3,
-  nu = .nu
+  sigma_alpha = sqrt(0.1),
+  sigma_gamma = 0.0,
+  sigma_phi = sqrt(1.7),
+  nu = -0.2,
+  lambda = exp(-1.5),
+  p = exp(0.0)
 )
 # Count, informative:
 d1c <- swtrial_inf(
   repn = 1,
-  N = .N,
+  k = .k,
   i = .i,
   j = 5,
   intervention_seq = 4,
-  deltas = .delta,
-  betas = .beta,
+  deltas = rep(0.1, 4),
+  betas = rep(-1, 5),
   family = "poisson",
-  sigma_alpha = .sa / 3,
-  sigma_gamma = .sg / 3,
-  sigma_phi = .sp / 3,
-  nu = .nu,
-  omega1 = .omega,
-  omega2 = .omega, # shouldn't matter
-  omega3 = .omega
+  sigma_alpha = sqrt(0.1),
+  sigma_gamma = 0.0,
+  sigma_phi = sqrt(1.7),
+  nu = -0.2,
+  lambda = exp(-1.5),
+  p = exp(0.0),
+  omega1 = 0.8,
+  omega2 = 0.0,
+  omega3 = 0.3
 )
 
 ### Export
