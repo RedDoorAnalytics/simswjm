@@ -1,12 +1,8 @@
-#' @title Simulate Data from Stepped Wedge Longitudinal Trials
-#'
-#' @description Tools, utilities, and functions that are useful to simulate data
-#'     from stepped wedge longitudinal trials under a variety of study designs
-#'     and assumptions.
-#'
-#' @name simswjm
-#' @docType package
-#' @author Alessandro Gasparini (alessandro.gasparini@@reddooranalytics.se)
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
+## usethis namespace: end
 NULL
 
 # Quiets concerns of R CMD check re: variable names used internally
