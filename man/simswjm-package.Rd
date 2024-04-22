@@ -6,7 +6,7 @@
 \alias{simswjm-package}
 \title{simswjm: Simulate Data from Stepped Wedge Longitudinal Trials}
 \description{
-More about what it does (maybe more than one line) Use four spaces when indenting paragraphs within the Description.
+Simulate data from stepped wedge cluster randomised trials with continuous, binary, or counts outcomes. Scenarios with non-informative and informative dropout can be accommodated.
 }
 \author{
 \strong{Maintainer}: Alessandro Gasparini \email{alessandro.gasparini@reddooranalytics.se}

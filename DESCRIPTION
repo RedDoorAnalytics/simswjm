@@ -1,7 +1,7 @@
 Package: simswjm
 Type: Package
 Title: Simulate Data from Stepped Wedge Longitudinal Trials
-Version: 0.0.0-9000
+Version: 0.0.1
 Authors@R: c(
   person(given = "Alessandro", 
          family = "Gasparini", 
@@ -9,11 +9,11 @@ Authors@R: c(
          role = c("aut", "cre")),
   person("Red Door Analytics AB", role = c("cph"))
   )
-Description: More about what it does (maybe more than one line)
-  Use four spaces when indenting paragraphs within the Description.
+Description: Simulate data from stepped wedge cluster randomised trials with
+  continuous, binary, or counts outcomes. Scenarios with non-informative and
+  informative dropout can be accommodated.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 7.3.1
 Imports:
   dplyr,
