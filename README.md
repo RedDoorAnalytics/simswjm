@@ -14,7 +14,7 @@ informative dropout.
 This package is a companion to the manuscript titled “Analysis of cohort
 stepped wedge cluster-randomized trials with non-ignorable dropout via
 joint modeling”, which is currently submitted for publication. A
-pre-print is available on arXiv.
+pre-print is [available on arXiv](https://arxiv.org/abs/2404.14840).
 
 # Installation
 
@@ -25,3 +25,9 @@ You can install the development version of {simswjm} from
 # install.packages("devtools")
 devtools::install_github("RedDoorAnalytics/simswjm")
 ```
+
+# Issues
+
+If you have any questions or feedback on the package or experience any
+bugs, please [file an issue on
+GitHub](https://github.com/RedDoorAnalytics/simswjm/issues).
