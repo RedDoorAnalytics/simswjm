@@ -4,12 +4,15 @@
 # {simswjm}: Simulating Stepped Wedge Trials With and Without Informative Dropout
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 The {simswjm} package can be used to simulate data from stepped wedge
 trials with a continuous, binary, or count longitudinal outcome.
 Moreover, data can be simulated assuming both non-informative and
-informative dropout.
+informative dropout, with the dropout mechanism according to a joint
+longitudinal-survival model with shared random effects or (loosely)
+based on a mixed effects logistic regression model.
 
 This package is a companion to the manuscript titled “Analysis of cohort
 stepped wedge cluster-randomized trials with non-ignorable dropout via

@@ -22,7 +22,8 @@ swtrial_inf(
   nu = 0,
   omega1 = 0,
   omega2 = 0,
-  omega3 = 0
+  omega3 = 0,
+  logistic_dropout = FALSE
 )
 }
 \arguments{
@@ -79,6 +80,11 @@ to the survival sub-model. Defaults to 0.0;}
 
 \item{omega3}{Association parameter linking the random intercept \eqn{\phi}
 to the survival sub-model. Defaults to 0.0.}
+
+\item{logistic_dropout}{Logical value denoting whether a mixed effects logistic
+regression model should be used to simulate the dropout process instead of
+a parametric survival model. Defaults to \code{FALSE}. See the details section
+below for more information.}
 }
 \value{
 A simulated dataset from a stepped wedge trial with possibly informative
@@ -86,6 +92,15 @@ dropout.
 }
 \description{
 Simulate Data from a Stepped-Wedge Trial with Informative Dropout
+}
+\details{
+The model for dropout is, assuming default settings, a Weibull parametric
+survival model with scale parameter \code{lambda} and shape parameter \code{p}.
+If we set the argument \code{logistic_dropout = TRUE} (compared to the default
+value of \code{FALSE}), the dropout model is a mixed effects logistic regression
+model with the same linear predictor structure of the survival sub-model,
+assuming that once a subject drops out of the study they are never observed
+ever again.
 }
 \examples{
 # Simulate a stepped-wedge trial with a continuous outcome:
