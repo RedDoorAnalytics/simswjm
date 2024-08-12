@@ -15,10 +15,12 @@ make_stepped_wedge_design(i, j, intervention_seq)
 }
 \value{
 A dataset with the following columns:
-* `j`, identifying the distinct periods;
-* `s`, identifying the distinct intervention sequences;
-* `i`, identifying each cluster;
-* `x`, denoting whether a certain cluster `i` was treated during a certain period `j`.
+\itemize{
+\item \code{j}, identifying the distinct periods;
+\item \code{s}, identifying the distinct intervention sequences;
+\item \code{i}, identifying each cluster;
+\item \code{x}, denoting whether a certain cluster \code{i} was treated during a certain period \code{j}.
+}
 }
 \description{
 Generate a Balanced Stepped-Wedge Design

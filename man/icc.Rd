@@ -16,8 +16,8 @@ icc(sigma_alpha, sigma_gamma, sigma_phi, sigma_epsilon)
 \item{sigma_epsilon}{Standard deviation of the residual error term.}
 }
 \value{
-A list of values with within-individual ICC for repeated measures (`ICC_a`),
-    within-period ICC (`ICC_w`), and between-period ICC (`ICC_b`).
+A list of values with within-individual ICC for repeated measures (\code{ICC_a}),
+within-period ICC (\code{ICC_w}), and between-period ICC (\code{ICC_b}).
 }
 \description{
 Calculate ICC Values

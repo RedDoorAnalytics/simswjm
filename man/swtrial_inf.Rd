@@ -30,29 +30,29 @@ swtrial_inf(
 
 \item{k}{Number of subjects per cluster;}
 
-\item{i}{Number of clusters, passed to [make_stepped_wedge_design()].
+\item{i}{Number of clusters, passed to \code{\link[=make_stepped_wedge_design]{make_stepped_wedge_design()}}.
 Defaults to 8;}
 
-\item{j}{Number of time periods, passed to [make_stepped_wedge_design()].
+\item{j}{Number of time periods, passed to \code{\link[=make_stepped_wedge_design]{make_stepped_wedge_design()}}.
 Defaults to 5;}
 
-\item{intervention_seq}{Number of intervention sequences, passed to [make_stepped_wedge_design()].
+\item{intervention_seq}{Number of intervention sequences, passed to \code{\link[=make_stepped_wedge_design]{make_stepped_wedge_design()}}.
 Defaults to 4}
 
 \item{deltas}{Treatment effect parameter(s) on the longitudinal outcome.
-Must be a vector of length `j - 1`, corresponding to a general time on
+Must be a vector of length \code{j - 1}, corresponding to a general time on
 treatment model, but if all values are the same then that is equivalent
 to a constant intervention effect model;}
 
-\item{betas}{Period effect parameters. Must be a vector of length `j`;}
+\item{betas}{Period effect parameters. Must be a vector of length \code{j};}
 
-\item{family}{Distribution of the outcome. Can be one of `"gaussian"`,
-`"binomial"`, or `"poisson"` for continuous, binary, count outcomes,
+\item{family}{Distribution of the outcome. Can be one of \code{"gaussian"},
+\code{"binomial"}, or \code{"poisson"} for continuous, binary, count outcomes,
 respectively. Default link functions are assumed: identity for continuous
 outcomes, logit for binary outcomes, and log for count outcomes;}
 
 \item{sigma_epsilon}{Standard deviation of the residual error term. Only
-applies when `family = "gaussian"`, and defaults to 0.0;}
+applies when \code{family = "gaussian"}, and defaults to 0.0;}
 
 \item{sigma_alpha}{Standard deviation of cluster-level random effect \eqn{\alpha}.
 Defaults to 0.0;}
@@ -82,7 +82,7 @@ to the survival sub-model. Defaults to 0.0.}
 }
 \value{
 A simulated dataset from a stepped wedge trial with possibly informative
-    dropout.
+dropout.
 }
 \description{
 Simulate Data from a Stepped-Wedge Trial with Informative Dropout
