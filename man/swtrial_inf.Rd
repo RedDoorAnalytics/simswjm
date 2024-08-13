@@ -23,7 +23,8 @@ swtrial_inf(
   omega1 = 0,
   omega2 = 0,
   omega3 = 0,
-  logistic_dropout = FALSE
+  logistic_dropout = FALSE,
+  logistic_intercept = -2
 )
 }
 \arguments{
@@ -85,6 +86,8 @@ to the survival sub-model. Defaults to 0.0.}
 regression model should be used to simulate the dropout process instead of
 a parametric survival model. Defaults to \code{FALSE}. See the details section
 below for more information.}
+
+\item{logistic_intercept}{Intercept of the logistic regression model, when \code{logistic_dropout = TRUE}. Defaults to -2.}
 }
 \value{
 A simulated dataset from a stepped wedge trial with possibly informative

@@ -40,6 +40,7 @@
 #'     regression model should be used to simulate the dropout process instead of
 #'     a parametric survival model. Defaults to `FALSE`. See the details section
 #'     below for more information.
+#' @param logistic_intercept Intercept of the logistic regression model, when `logistic_dropout = TRUE`. Defaults to -2.
 #'
 #' @return A simulated dataset from a stepped wedge trial with possibly informative
 #'     dropout.
@@ -67,7 +68,7 @@
 #'   sigma_phi = 3,
 #'   omega1 = 1, omega3 = 1
 #' )
-swtrial_inf <- function(repn, k, i = 8, j = 5, intervention_seq = 4, deltas, betas, family, sigma_epsilon = 0.0, sigma_alpha = 0.0, sigma_gamma = 0.0, sigma_phi = 0.0, lambda = 0.05, p = 2, nu = 0.0, omega1 = 0.0, omega2 = 0.0, omega3 = 0.0, logistic_dropout = FALSE) {
+swtrial_inf <- function(repn, k, i = 8, j = 5, intervention_seq = 4, deltas, betas, family, sigma_epsilon = 0.0, sigma_alpha = 0.0, sigma_gamma = 0.0, sigma_phi = 0.0, lambda = 0.05, p = 2, nu = 0.0, omega1 = 0.0, omega2 = 0.0, omega3 = 0.0, logistic_dropout = FALSE, logistic_intercept = -2) {
   # repn <- 1
   # k <- 10
   # i <- 8
@@ -86,7 +87,8 @@ swtrial_inf <- function(repn, k, i = 8, j = 5, intervention_seq = 4, deltas, bet
   # omega1 <- log(0.9)
   # omega2 <- 0.0
   # omega3 <- log(0.9)
-  # logistic_dropout <- FALSE
+  # logistic_dropout <- TRUE
+  # logistic_intercept <- -2
 
   # Simulate trial without dropout
   df <- swtrial(repn = repn, k = k, i = i, j = j, intervention_seq = intervention_seq, deltas = deltas, betas = betas, family = family, sigma_epsilon = sigma_epsilon, sigma_alpha = sigma_alpha, sigma_gamma = sigma_gamma, sigma_phi = sigma_phi)
@@ -133,7 +135,7 @@ swtrial_inf <- function(repn, k, i = 8, j = 5, intervention_seq = 4, deltas, bet
   } else {
     logdf <- df
     # Probability of dropout for a given interval
-    logdf$p <- stats::plogis(q = c(scale(logdf$xb)))
+    logdf$p <- stats::plogis(q = c(scale(logdf$xb)) + logistic_intercept)
     # Draw and process dropout indicator
     logdf$status <- stats::rbinom(n = nrow(logdf), size = 1, prob = logdf$p)
     logdf <- dplyr::group_by(logdf, id)
