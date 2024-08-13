@@ -1,5 +1,11 @@
 #' Simulate Data from a Stepped-Wedge Trial with Informative Dropout
 #'
+#' @description
+#' The [swtrial_inf()] function can be used to simulate data from a stepped wedge
+#' cluster randomised trial with (or without) informative dropout, depending on
+#' the values of the `omega1`, `omega2`, `omega3`, or `nu` arguments. More
+#' information on the dropout mechanisms are included in the details section below.
+#'
 #' @param repn Index number for the current dataset, useful for simulations;
 #' @param k Number of subjects per cluster;
 #' @param i Number of clusters, passed to [make_stepped_wedge_design()].
@@ -40,7 +46,7 @@
 #'     regression model should be used to simulate the dropout process instead of
 #'     a parametric survival model. Defaults to `FALSE`. See the details section
 #'     below for more information.
-#' @param logistic_intercept Intercept of the logistic regression model, when `logistic_dropout = TRUE`. Defaults to -2.
+#' @param logistic_intercept Intercept of the logistic regression model, used when `logistic_dropout = TRUE`. Defaults to -2.
 #'
 #' @return A simulated dataset from a stepped wedge trial with possibly informative
 #'     dropout.
@@ -51,7 +57,10 @@
 #'     value of `FALSE`), the dropout model is a mixed effects logistic regression
 #'     model with the same linear predictor structure of the survival sub-model,
 #'     assuming that once a subject drops out of the study they are never observed
-#'     ever again.
+#'     ever again. Note that the linear predictor of the mixed effects logistic
+#'     model is standardised using the [scale()] function (with default
+#'     arguments) before being combined with the user-defined intercept
+#'     (argument `logistic_intercept`).
 #'
 #' @export
 #'
