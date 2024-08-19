@@ -126,7 +126,7 @@ swtrial_inf <- function(repn, k, i = 8, j = 5, intervention_seq = 4, deltas, bet
     survdf <- dplyr::mutate(survdf, eventtime = pmin(eventtime, j))
     # Merge back drop-out information and censor trajectories
     df <- dplyr::left_join(df, survdf, by = c("id", "alpha", "gamma", "phi", "tJ"))
-    df <- dplyr::mutate(df, yobs = ifelse(j <= eventtime, y, NA))
+    df <- dplyr::mutate(df, yobs = ifelse((j - 1) <= eventtime, y, NA))
     # Sort again (to be sure)
     df <- dplyr::arrange(df, i, id, j)
     # Prepare datasets for analysis
@@ -159,7 +159,7 @@ swtrial_inf <- function(repn, k, i = 8, j = 5, intervention_seq = 4, deltas, bet
     logdf <- dplyr::summarise(logdf, eventtime = max(eventtime))
     # Merge back drop-out information and censor trajectories
     df <- dplyr::left_join(df, logdf, by = "id")
-    df <- dplyr::mutate(df, yobs = ifelse(j <= eventtime, y, NA))
+    df <- dplyr::mutate(df, yobs = ifelse((j - 1) <= eventtime, y, NA))
     # Sort again (to be sure)
     df <- dplyr::arrange(df, i, id, j)
     # Prepare datasets for analysis
