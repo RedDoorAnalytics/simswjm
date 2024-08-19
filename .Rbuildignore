@@ -4,3 +4,4 @@
 ^Makefile$
 ^testing$
 ^README\.Rmd$
+^\.github$

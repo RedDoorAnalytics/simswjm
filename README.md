@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/RedDoorAnalytics/simswjm/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/RedDoorAnalytics/simswjm/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The {simswjm} package can be used to simulate data from stepped wedge
