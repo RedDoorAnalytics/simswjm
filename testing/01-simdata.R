@@ -3,8 +3,8 @@ library(haven)
 library(devtools)
 devtools::load_all()
 set.seed(458622)
-.k <- 30
-.i <- 100
+.k <- 50
+.i <- 120
 
 ### Continuous:
 
@@ -18,10 +18,10 @@ d0g <- swtrial_inf(
   deltas = rep(0.2, 4),
   betas = rep(50, 5),
   family = "gaussian",
-  sigma_epsilon = sqrt(52.8),
+  sigma_epsilon = sqrt(50),
   sigma_alpha = sqrt(1),
   sigma_gamma = 0.0,
-  sigma_phi = sqrt(54),
+  sigma_phi = sqrt(55),
   nu = -0.2,
   lambda = exp(-1.5),
   p = exp(0.0)
@@ -36,10 +36,10 @@ d1g <- swtrial_inf(
   deltas = rep(0.2, 4),
   betas = rep(50, 5),
   family = "gaussian",
-  sigma_epsilon = sqrt(52.8),
+  sigma_epsilon = sqrt(50),
   sigma_alpha = sqrt(1),
   sigma_gamma = 0.0,
-  sigma_phi = sqrt(54),
+  sigma_phi = sqrt(55),
   nu = -0.2,
   lambda = exp(-1.5),
   p = exp(0.0),
@@ -60,7 +60,7 @@ d0b <- swtrial_inf(
   deltas = rep(0.2, 4),
   betas = rep(-2, 5),
   family = "binomial",
-  sigma_alpha = sqrt(0.1),
+  sigma_alpha = sqrt(0.2),
   sigma_gamma = 0.0,
   sigma_phi = sqrt(1.0),
   nu = -0.1,
@@ -77,7 +77,7 @@ d1b <- swtrial_inf(
   deltas = rep(0.2, 4),
   betas = rep(-2, 5),
   family = "binomial",
-  sigma_alpha = sqrt(0.1),
+  sigma_alpha = sqrt(0.2),
   sigma_gamma = 0.0,
   sigma_phi = sqrt(1.0),
   nu = -0.1,
@@ -100,7 +100,7 @@ d0c <- swtrial_inf(
   deltas = rep(0.1, 4),
   betas = rep(-1, 5),
   family = "poisson",
-  sigma_alpha = sqrt(0.1),
+  sigma_alpha = sqrt(0.3),
   sigma_gamma = 0.0,
   sigma_phi = sqrt(1.7),
   nu = -0.2,
@@ -117,7 +117,7 @@ d1c <- swtrial_inf(
   deltas = rep(0.1, 4),
   betas = rep(-1, 5),
   family = "poisson",
-  sigma_alpha = sqrt(0.1),
+  sigma_alpha = sqrt(0.3),
   sigma_gamma = 0.0,
   sigma_phi = sqrt(1.7),
   nu = -0.2,
