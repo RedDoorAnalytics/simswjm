@@ -5,3 +5,5 @@
 ^testing$
 ^README\.Rmd$
 ^\.github$
+^dt_logit\.dta$
+^dt_surv\.dta$

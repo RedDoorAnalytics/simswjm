@@ -2,3 +2,5 @@
 .Rhistory
 .RData
 .Ruserdata
+dt_logit.dta
+dt_surv.dta
