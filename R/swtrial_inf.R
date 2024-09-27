@@ -80,7 +80,7 @@
 swtrial_inf <- function(repn, k, i = 8, j = 5, intervention_seq = 4, deltas, betas, family, sigma_epsilon = 0.0, sigma_alpha = 0.0, sigma_gamma = 0.0, sigma_phi = 0.0, lambda = 0.05, p = 2, nu = 0.0, omega1 = 0.0, omega2 = 0.0, omega3 = 0.0, logistic_dropout = FALSE, logistic_intercept = -2) {
   # repn <- 1
   # k <- 10
-  # i <- 8
+  # i <- 32
   # j <- 5
   # intervention_seq <- 4
   # deltas <- rep(5, 4)
@@ -93,9 +93,9 @@ swtrial_inf <- function(repn, k, i = 8, j = 5, intervention_seq = 4, deltas, bet
   # lambda <- exp(-1.5)
   # p <- 1.0
   # nu <- -0.2
-  # omega1 <- log(0.9)
+  # omega1 <- -0.105
   # omega2 <- 0.0
-  # omega3 <- log(0.9)
+  # omega3 <- -0.105
   # logistic_dropout <- TRUE
   # logistic_intercept <- -2
 
@@ -156,7 +156,10 @@ swtrial_inf <- function(repn, k, i = 8, j = 5, intervention_seq = 4, deltas, bet
     logdf$u <- stats::runif(n = nrow(logdf))
     logdf <- dplyr::filter(logdf, status <= 1)
     logdf <- dplyr::mutate(logdf, eventtime = (j - 1) + u)
-    logdf <- dplyr::summarise(logdf, eventtime = max(eventtime))
+    logdf <- dplyr::filter(logdf, eventtime == max(eventtime)) |>
+      dplyr::select(id, status, eventtime) |>
+      dplyr::mutate(eventtime = ifelse(status == 1, eventtime, ceiling(eventtime) + 1)) |>
+      dplyr::select(-status)
     # Merge back drop-out information and censor trajectories
     df <- dplyr::left_join(df, logdf, by = "id")
     df <- dplyr::mutate(df, yobs = ifelse(j <= eventtime, y, NA))
