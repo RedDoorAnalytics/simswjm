@@ -26,8 +26,8 @@ You can install the development version of {simswjm} from
 [GitHub](https://github.com/RedDoorAnalytics/simswjm) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("RedDoorAnalytics/simswjm")
+# install.packages("remotes")
+remotes::install_github("RedDoorAnalytics/simswjm")
 ```
 
 # Issues
