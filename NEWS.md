@@ -1,3 +1,13 @@
+# simswjm 0.0.5
+
+* Fixed some bugs with the logistic dropout mechanism;
+
+* Improved documentation.
+
+# simswjm 0.0.4
+
+* Added the option to adjust the intercept of the mixed effects logistic regression model for dropout (argument `logistic_intercept`) in `swtrial_inf()`.
+
 # simswjm 0.0.3
 
 * Added the option to simulate dropout according to a second mechanism, loosely based on a mixed effects logistic regression model.
