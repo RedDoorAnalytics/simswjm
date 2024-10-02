@@ -1,5 +1,7 @@
 # simswjm (development version)
 
+* Added `CITATION` file and infrastructure.
+
 # simswjm 0.0.5
 
 * Fixed some bugs with the logistic dropout mechanism;

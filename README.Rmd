@@ -34,6 +34,14 @@ You can install the development version of {simswjm} from [GitHub](https://githu
 remotes::install_github("RedDoorAnalytics/simswjm")
 ```
 
+# Citation
+
+If you find this useful, please cite it in your work:
+
+```{r}
+citation("simswjm")
+```
+
 # Issues
 
 If you have any questions or feedback on the package or experience any bugs, please [file an issue on GitHub](https://github.com/RedDoorAnalytics/simswjm/issues).

@@ -30,6 +30,32 @@ You can install the development version of {simswjm} from
 remotes::install_github("RedDoorAnalytics/simswjm")
 ```
 
+# Citation
+
+If you find this useful, please cite it in your work:
+
+``` r
+citation("simswjm")
+#> To cite package 'simswjm' in publications use:
+#> 
+#>   Gasparini A, Crowther MJ, Hoogendijk EO, Li F, Harhay MO (2024).
+#>   "Analysis of cohort stepped wedge cluster-randomized trials with
+#>   non-ignorable dropout via joint modeling." 2404.14840,
+#>   <https://arxiv.org/abs/2404.14840>.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Misc{,
+#>     title = {Analysis of cohort stepped wedge cluster-randomized trials with non-ignorable dropout via joint modeling},
+#>     author = {Alessandro Gasparini and Michael J. Crowther and Emiel O. Hoogendijk and Fan Li and Michael O. Harhay},
+#>     year = {2024},
+#>     eprint = {2404.14840},
+#>     archiveprefix = {arXiv},
+#>     primaryclass = {stat.ME},
+#>     url = {https://arxiv.org/abs/2404.14840},
+#>   }
+```
+
 # Issues
 
 If you have any questions or feedback on the package or experience any

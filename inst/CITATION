@@ -1,0 +1,10 @@
+bibentry(
+  bibtype = "Misc",
+  title = "Analysis of cohort stepped wedge cluster-randomized trials with non-ignorable dropout via joint modeling",
+  author = "Alessandro Gasparini and Michael J. Crowther and Emiel O. Hoogendijk and Fan Li and Michael O. Harhay",
+  year = "2024",
+  eprint = "2404.14840",
+  archivePrefix = "arXiv",
+  primaryClass = "stat.ME",
+  url = "https://arxiv.org/abs/2404.14840"
+)
