@@ -30,6 +30,15 @@ You can install the development version of {simswjm} from
 remotes::install_github("RedDoorAnalytics/simswjm")
 ```
 
+# Example code
+
+Example code to fit mixed-effects and joint models using the simulated
+data is included within this repository as well, in the
+[`testing/`](https://github.com/RedDoorAnalytics/simswjm/tree/main/testing)
+folder. Specifically, models are fit using the `gsem` command in Stata
+for continuous, binary, count outcomes; more details in [this
+file](https://github.com/RedDoorAnalytics/simswjm/blob/main/testing/02-testanalysis.do).
+
 # Citation
 
 If you find this useful, please cite it in your work:
