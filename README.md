@@ -17,8 +17,10 @@ based on a mixed effects logistic regression model.
 
 This package is a companion to the manuscript titled “Analysis of cohort
 stepped wedge cluster-randomized trials with non-ignorable dropout via
-joint modeling”, which is currently submitted for publication. A
-pre-print is [available on arXiv](https://arxiv.org/abs/2404.14840).
+joint modeling”, published in [Statistics in
+Medicine](https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.10347). A
+pre-print is also [available on
+arXiv](https://arxiv.org/abs/2404.14840).
 
 # Installation
 
@@ -47,21 +49,25 @@ If you find this useful, please cite it in your work:
 citation("simswjm")
 #> To cite package 'simswjm' in publications use:
 #> 
-#>   Gasparini A, Crowther MJ, Hoogendijk EO, Li F, Harhay MO (2024).
+#>   Gasparini A, Crowther MJ, Hoogendijk EO, Li F, Harhay MO (2025).
 #>   "Analysis of cohort stepped wedge cluster-randomized trials with
-#>   non-ignorable dropout via joint modeling." 2404.14840,
-#>   <https://arxiv.org/abs/2404.14840>.
+#>   non-ignorable dropout via joint modeling." _Statistics in Medicine_,
+#>   *44*(5), e10347. doi:10.1002/sim.10347
+#>   <https://doi.org/10.1002/sim.10347>,
+#>   <https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.10347>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
-#>   @Misc{,
+#>   @Article{,
 #>     title = {Analysis of cohort stepped wedge cluster-randomized trials with non-ignorable dropout via joint modeling},
 #>     author = {Alessandro Gasparini and Michael J. Crowther and Emiel O. Hoogendijk and Fan Li and Michael O. Harhay},
-#>     year = {2024},
-#>     eprint = {2404.14840},
-#>     archiveprefix = {arXiv},
-#>     primaryclass = {stat.ME},
-#>     url = {https://arxiv.org/abs/2404.14840},
+#>     year = {2025},
+#>     journal = {Statistics in Medicine},
+#>     volume = {44},
+#>     number = {5},
+#>     pages = {e10347},
+#>     doi = {10.1002/sim.10347},
+#>     url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.10347},
 #>   }
 ```
 
