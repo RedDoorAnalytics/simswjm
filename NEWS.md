@@ -1,3 +1,5 @@
+# simswjm (development version)
+
 # simswjm 0.0.6
 
 * Added `CITATION` file and infrastructure.
