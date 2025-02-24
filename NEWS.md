@@ -1,6 +1,8 @@
-# simswjm (development version)
+# simswjm 0.0.6
 
 * Added `CITATION` file and infrastructure.
+
+* This corresponds with publication of the paper in [Statistics in Medicine](https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.10347).
 
 # simswjm 0.0.5
 
