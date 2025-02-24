@@ -156,10 +156,10 @@ swtrial_inf <- function(repn, k, i = 8, j = 5, intervention_seq = 4, deltas, bet
     logdf$u <- stats::runif(n = nrow(logdf))
     logdf <- dplyr::filter(logdf, status <= 1)
     logdf <- dplyr::mutate(logdf, eventtime = (j - 1) + u)
-    logdf <- dplyr::filter(logdf, eventtime == max(eventtime)) |>
-      dplyr::select(id, status, eventtime) |>
-      dplyr::mutate(eventtime = ifelse(status == 1, eventtime, ceiling(eventtime) + 1)) |>
-      dplyr::select(-status)
+    logdf <- dplyr::filter(logdf, eventtime == max(eventtime))
+    logdf <- dplyr::select(logdf, id, status, eventtime)
+    logdf <- dplyr::mutate(logdf, eventtime = ifelse(status == 1, eventtime, ceiling(eventtime) + 1))
+    logdf <- dplyr::select(logdf, -status)
     # Merge back drop-out information and censor trajectories
     df <- dplyr::left_join(df, logdf, by = "id")
     df <- dplyr::mutate(df, yobs = ifelse(j <= eventtime, y, NA))
